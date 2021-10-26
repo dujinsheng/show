@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .box {
+            width: 732px;
+            height: 99px;
+            padding: 8px 20px 0px;
+            background: url(images/bg.png) no-repeat;
+            margin: 100px auto;
+            position: relative;
+        }
+        .box p {
+            color: white;
+        }
+        .link-bottom {
+            height: 57.6px;
+            width: 14px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: #ccc;
+            line-height: 18px;
+            padding-top: 10px;
+        }
+        .link-bottom:hover {
+            color: blue;
+        }
+        .box ul li {
+            height: 69px;
+            width: 69px;
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+        .box li.current {
+            width: 224px;
+        }
+        .box li.current .big {
+            display: block;
+        }
+        .big {
+            width: 224px;
+            display: none;
+        }
+        .box li.current .small {
+            display: none;
+        }
+        .small {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 69px;
+            height: 69px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        // 注意：要在每个动画或者效果的前面都要加上动画停止排队stop()
+        $(function(){
+            // 鼠标经过某个小li的事件
+            $('.box li').mouseenter(function(){
+                // 让当前小li的宽度变大为224，他里面的大图片淡出，小图片淡入
+                $(this).stop().animate({
+                    width: 224,
+                }).find('.big').stop().fadeIn().siblings().stop().fadeOut();
+
+                // 鼠标经过当前li的时候，其它的小li宽度变小为69,其它小li的小图片淡出，大图片淡入。
+                $(this).siblings().stop().animate({
+                    width: 69,
+                }).find('.small').stop().fadeIn().siblings().stop().fadeOut();
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <p>周免英雄（10月11日-10月17日）</p>
+        <ul>
+            <li class="current">
+               <a href="">
+                   <img src="images/c1.jpg" alt="" class="small">
+                   <img src="images/c.png" alt="" class="big">
+               </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="images/h1.jpg" alt="" class="small">
+                    <img src="images/h.png" alt="" class="big">
+                </a>
+             </li>
+             <li>
+                <a href="">
+                    <img src="images/l1.jpg" alt="" class="small">
+                    <img src="images/l.png" alt="" class="big">
+                </a>
+             </li>
+             <li>
+                <a href="">
+                    <img src="images/m1.jpg" alt="" class="small">
+                    <img src="images/m.png" alt="" class="big">
+                </a>
+             </li>
+             <li>
+                <a href="">
+                    <img src="images/t1.jpg" alt="" class="small">
+                    <img src="images/t.png" alt="" class="big">
+                </a>
+             </li>
+             <li>
+                <a href="">
+                    <img src="images/w1.jpg" alt="" class="small">
+                    <img src="images/w.png" alt="" class="big">
+                </a>
+             </li>
+             <li>
+                <a href="">
+                    <img src="images/z1.jpg" alt="" class="small">
+                    <img src="images/z.png" alt="" class="big">
+                </a>
+             </li>
+             
+        </ul>
+        <a href="" class="link-bottom">更多英雄</a>
+    </div>
+</body>
+</html>

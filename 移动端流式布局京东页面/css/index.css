@@ -1,0 +1,329 @@
+/*流式布局*/
+/* 双伪元素清除浮动 */
+.clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+img {
+    /* 图片默认底层部分有空白缝隙 */
+    vertical-align: top;
+}
+body {
+    width: 100%;
+    height: 9000px;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0px auto;
+    padding: 0px;
+    background: #f2f2f2!important;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    color: #666;
+    line-height: 1.5;
+}
+.app {
+    height: 45px;
+    background-color: rgb(71, 58, 58);
+}
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    line-height: 45px;
+    text-align: center;
+}
+.app ul li:nth-child(1) {
+    width: 8%;  
+    float: left;
+    text-align: center;
+    line-height: 45px;
+}
+.app ul li:nth-child(1) img {
+    width: 10px;
+    vertical-align: middle;
+        /* 使图片与文字居中对齐 */
+}
+.app ul li:nth-child(2) {
+    width: 10%;
+    float: left;
+}
+.app ul li:nth-child(2) img {
+    width: 30px;
+    /* vertical-align: middle;作用是将文字和图片居中对齐 */
+    vertical-align: middle;
+}
+.app ul li:nth-child(3) {
+    width: 57%;
+    float: left;
+    color: white;
+}
+.app ul li:nth-child(4) {
+    width: 25%;
+    float: left;
+    color: white;
+    background-color: tomato;
+}
+.search-wrap {
+    height: 44px;
+    position: fixed;
+    /* 将超出该盒子的部分隐藏 */
+    overflow: hidden;
+    /* fixed为固定定位，要给它设置宽度 */
+    width: 100%;
+    /* 设置盒子的最小宽度和最大宽度 */
+    min-width: 320px;
+    max-width: 640px;
+}
+.search-btn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 44px;
+}
+.search-btn::before {
+    content: "";
+    display: block;
+    height: 18px;
+    width: 20px;
+    background: url(../images/s-btn.png) no-repeat;
+    background-size: 20px 18px;
+    margin: 14px 0px 0px 15px;
+}
+.search-logoin {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 44px;
+    color: white;
+    text-align: center;
+    line-height: 44px;
+}
+.search {
+    position: relative;
+    height: 30px;
+    border-radius: 15px;
+    margin: 0px 50px;
+    margin-top: 7px;
+    background-color: white;
+}
+.search .jd-icon {
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    height: 15px;
+    width: 20px;
+    background: url(../images/jd.png);
+    background-size: 20px 15px;
+}
+.search .jd-icon::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+    position: absolute;
+    top: 0px;
+    left: 28px;
+}
+.sou {
+    height: 15px;
+    width: 18px;
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    background: url(../images/jd-sprites.png) no-repeat -83px 0px;
+    /* -83px 0px 在X轴上移动负的83像素，在Y轴上移动0像素 */
+    background-size: 200px 200px;
+    /* 使用二倍精灵图将背景图缩放为原来的一半 */
+}
+.section {
+    height: 15px;
+    width: 68%;
+    position: absolute;
+    top: 8px;
+    left: 71px;
+    background-color: red;
+}
+.banner img {
+    width: 100%;
+}
+.brand {
+    border-radius: 15px 15px 0px 0px;
+    overflow: hidden;
+}
+.brand div {
+    float: left;
+    width: 33.33%;
+}
+.brand div img {
+    width: 100%;
+}
+nav a {
+    margin-top: 5px;
+    float: left;
+    width: 20%;
+    text-align: center;
+    text-decoration: none;
+}
+nav a img {
+    width: 40px;
+}
+nav a span {
+    display: block;
+}
+
+nav br {
+    /* w3school推荐的清除浮动的方法 */
+    clear: both;
+}
+.journalism a:nth-child(1) {
+    margin-top: 15px;
+    float: left;
+    width: 50%;
+}
+.journalism a:nth-child(2) {
+    margin-top: 15px;
+    float: left;
+    width: 25%;
+}
+.journalism a:nth-child(3) {
+    margin-top: 15px;
+    float: left;
+    width: 25%;
+}
+.journalism a img {
+    width: 100%;
+}
+.product {
+    /* 不给父盒子设置宽度为100%，之后margin-right：10px;才会起作用 */
+    margin: 5px 10px 0px 10px;
+    background-color: white;
+}
+.product div:nth-child(n) {
+    width: 25%;
+    height: 120px;
+    float: left;
+    padding: 6.5px 0px 5px 10px;
+    box-sizing: border-box;
+}
+.product div:nth-of-type(n) strong {
+    height: 22px;
+    width: 66px;
+    display: block;
+}
+.product div:nth-of-type(n) p {
+    margin: 0px;
+    height: 15px;
+    width: 78px;
+}
+.product .product-img {
+    display: block;
+    margin-left: 10px;
+    margin-top: 5px;
+    text-decoration: none;
+    height: 60px;
+    width: 60px;
+}
+.product .product-img img {
+    width: 100%;
+    height: 100%;
+}
+/* 产品链接模块 */
+.pro-link {
+    /* 宽度和高度都不给，可以设置左边的margin值 */
+    margin: 10px 10px 0px 10px;
+}
+.pro-link ul {
+    width: 100%;
+    padding: 0px;
+    list-style: none;
+}
+.pro-link ul li {
+    float: left;
+    width: 49%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+/* 选择奇数行 */
+.pro-link ul li:nth-child(odd) {
+    height: 274px;
+    margin-right: 2%;
+}
+/* 选择偶数行 */
+.pro-link ul li:nth-child(even) {
+    height: 274px;
+}
+.pro-link ul li p:nth-child(1) {
+    height: 173px;
+    width: 100%;
+    margin: 0px;
+}
+.pro-link ul li p:nth-child(1) img {
+    width: 100%;
+    height: 100%;
+}
+.pro-link ul li .yili {
+    display: block;
+    width: 100%;
+    height: 31px;
+    margin: 5px 0px 3px 0px;
+    padding: 0px 4px 0px 4px;
+    line-height: 16px;
+    text-align: left;
+    /* 以下是文本多余部分进行隐藏，并且显示省略号样式 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.pro-link ul li .yili img {
+    height: 13px;
+    width: 47.36px;
+}
+.pro-link ul li p:nth-child(2) {
+    width: 100%;
+    height: 26px;
+}
+.pro-link ul li .jiage {
+    height: 26px;
+    margin-top: 10px;
+}
+.pro-link ul li .jiage span:nth-child(1) {
+    width: 50px;
+    height: 26px;
+    float: left;
+    box-sizing: border-box;
+    padding: 0px 3px 0px 3px;
+    color: red;
+    line-height: 26px;
+    text-align: center;
+    font-size: 20px;
+}
+.pro-link ul li .jiage span:nth-child(2) {
+    width: 60px;
+    height: 26px;
+    float: right;
+    box-sizing: border-box;
+    padding: 0px 3px 0px 3px;
+    line-height: 26px;
+    font-size: 16px;
+    text-align: center;
+    color: gray;
+    background-color: lightgray;
+    border-radius: 4px;
+}
